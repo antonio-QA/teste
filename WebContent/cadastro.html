@@ -1,0 +1,125 @@
+<!doctype html>
+<html ng-app="cadastroModule">
+
+<head>
+	<title>JM Viagens - Cadastro</title>
+
+	<!-- Angular -->
+	<script src="js/angular.min.js"></script>
+
+	<!-- jquery - link cdn -->
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+
+	<!-- bootstrap - link cdn -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+	<!-- CSS -->
+	<link href="estilo.css" rel="stylesheet">
+
+	<!-- Javascript -->
+	<script src="controller/cadastro.js"></script>
+	
+
+	<meta charset="utf-8" />
+	<meta name="viemport" content="width=device-width, initial-scale=1">
+</head>
+
+<body ng-controller="cadastroController">
+
+	<table border="0" width="900" align="center">
+
+		<tr align="right">
+			<td> <img src="imagens/logo.png" /> </td>
+			<td align="right">
+				<a href="index.html">Home</a> |
+				<a href="quem-somos.html">Quem somos</a> |
+				<a href="contato.html">Contato</a> |
+				<a href="cadastro.html">Cadastro</a> |
+				<a href="teste.html">Teste</a>
+			</td>
+		</tr>
+
+	</table>
+
+	<div class="container">
+		<h1 align="center">Teste Front-End & Back-End</h1>
+		<form>
+			<div class="form-row">
+				<div class="col-md-4 mb-3">
+					<label for="validationServer01">Código</label>
+					<input type="text" class="form-control is-valid" ng-model="registro.codigo" id="validationServer01" placeholder="Código"
+						value="" required>
+
+				</div>
+				<div class="col-md-4 mb-3">
+					<label for="validationServer02">Nome</label>
+					<input type="text" class="form-control is-valid" ng-model="registro.nome" id="validationServer02" placeholder="Nome"
+						value="" required>
+
+				</div>
+				<div class="col-md-4 mb-3">
+					<label for="validationServeremail">email</label>
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text" id="inputGroupPrepend3"></span>
+						</div>
+						<input type="text" class="form-control is-invalid"  ng-model="registro.email" id="validationServerEmail"
+							placeholder="Email" aria-describedby="inputGroupPrepend3" required>
+
+					</div>
+				</div>
+			</div>
+			<br />
+			<div class="form-row">
+				<div class="col-md-6 mb-3" id="city">
+					<label for="validationServer03">Fone</label>
+					<input type="text" class="form-control is-invalid"  ng-model="registro.fone" id="validationServerFone" placeholder="Fone"
+					aria-describedby="inputGroupPrepend3" required>
+				</div>
+				
+			</div>
+
+
+		</form>
+
+	</div>
+
+	<form>
+		<br />
+		<div class="container" align="center">
+			<button class="btn btn-success" ng-click="salvarCadastro() "type="submit">Salvar</button>
+			<button class="btn btn-primary" ng-click="limparCampos()" type="submit">Limpar</button>
+			<button class="btn btn-danger" ng-click="excluirRegistro()" type="submit">Excluir</button>
+		</div>
+	</form>
+
+	<form>
+		<div class="container">
+			<label for="validationServer04">Pesquisar</label>
+			<input type="text" class="form-control is-invalid" id="validationServer04" placeholder="Pesquisa" required>
+
+		</div>
+	</form>
+
+	<form>
+		<div class="container" id="table">
+			<table class="table table-striped">
+				<th>Código</th>
+				<th>Nome</th>
+				<th>Email</th>
+				<th>Fone</th>
+				<tr ng-repeat="cadastroTabela in cadastro" ng-click="selecionarRegistro(cadastroTabela)">
+					<td>{{cadastroTabela.codigo}}</td>
+					<td>{{cadastroTabela.nome}}</td>
+					<td>{{cadastroTabela.email}}</td>
+					<td>{{cadastroTabela.fone}}</td>
+				</tr>
+			</table>
+		</div>
+	</form>
+
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
